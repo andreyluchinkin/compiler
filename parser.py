@@ -155,8 +155,8 @@ def p_return(p):
     p[0] = Node(p[1], [p[2]])
 
 def p_assign(p):
-    '''assign : ID ASSiGNSYMBOL exp
-              | ID ASSiGNSYMBOL STRING'''
+    '''assign : ID ASSI exp
+              | ID ASSI STRING'''
     p[0] = Node('assign', [p[1], p[3]])
 
 def p_exp(p):

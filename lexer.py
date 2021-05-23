@@ -30,7 +30,7 @@ tokens = list(reserved.values()) + [
         'COMA',
         'OPEN_SKOBKA',
         'CLOSE_SKOBKA',
-        'ASSiGNSYMBOL',
+        'ASSI',
         'SEMI_COLON',
         'PLUS',
         'MINUS',
@@ -53,7 +53,7 @@ t_PRINT = r'print'
 t_OPEN_SKOBKA = r'\('
 t_CLOSE_SKOBKA = r'\)'
 t_COMA = r'\,'
-t_ASSiGNSYMBOL = r'\:='
+t_ASSI = r'\:='
 t_SEMI_COLON = r'\;'
 t_PLUS = r'\+'
 t_MINUS = r'\-'
