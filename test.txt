@@ -1,0 +1,70 @@
+var
+num: int;
+iter: int;
+test1: float;
+test2: float
+def find_max(a: int; b:int)
+start
+    if(b>a)then
+    start
+        a:=b
+    end;
+    return(a*1)
+end;
+
+def find_cube(first: int)
+start
+var
+iterator: int
+    iterator:=0;
+    while not(iterator=2) do
+    start
+        iterator:= iterator + 1;
+        first:= first*first
+    end;
+    return(first*1)
+end
+start
+    num:=10;
+    iter:=5;
+    num:=find_max(num; iter);
+    num:=find_cube(num);
+    print('cube_of_max_value');
+    print(num);
+    test1:=1.0;
+    test2:=5.0;
+    while (test1<10.0) and (test2<10.0)do
+    start
+        test1:=test1 + 1.0;
+        test2:=test2 + 1.0;
+        if (test2=10.0)then
+        start
+            print('test2=10.0_srabotalo');
+            test1:=10.0;
+            break
+        end
+    end;
+    print('test1:');
+    print(test1);
+    print('test2:');
+    print(test2);
+    if(test1=10.0)then
+    start
+        if(test2=10.0)then
+        start
+            while(test2<20.0)do
+            start
+                test1:=test1+2.0;
+                test2:=test2+1.0;
+                    print('in_while_test1:');
+                    print(test1);
+                    print('in_while_test2:');
+                    print(test2)
+            end
+        end
+    end;
+    print('test1:');
+    print(test1);
+    print('test2:');
+    print(test2)
+end

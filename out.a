@@ -1,0 +1,280 @@
+.text
+main :
+	li $s0, 10
+	li $s1, 5
+	 move $a1, $s0
+	 move $a2, $s1
+	 jal find_max
+	move $s0, $t0
+	 move $a1, $s0
+	 jal find_cube
+	move $s0, $t0
+	li $v0, 4
+	la $a0, tmpstring0
+	syscall
+	li $v0, 4
+	la $a0, string2
+	syscall
+	li $v0, 1
+	la $a0, ($s0)
+	syscall
+	li $v0, 4
+	la $a0, string2
+	syscall
+	li.s $f0, 1.0
+	li.s $f1, 5.0
+start_if0: 
+	 li.s $f16,10.0
+	c.lt.s $f0, $f16
+	li $t0, 1
+	move $s7 $t0
+	bc1f makefalse0
+endmakefalse0:
+	move $t0 $s7
+	 li.s $f16,10.0
+	c.lt.s $f1, $f16
+	li $t1, 1
+	move $s7 $t1
+	bc1f makefalse1
+endmakefalse1:
+	move $t1 $s7
+	and $t2, $t0, $t1
+	beq $t2, $0, ENDif0
+	li $t9 1
+	beq $t2, $t9, if0
+ENDif0:
+	li $v0, 4
+	la $a0, tmpstring1
+	syscall
+	li $v0, 4
+	la $a0, string2
+	syscall
+	li $v0, 2
+	mov.s $f12, $f0
+	syscall
+	li $v0, 4
+	la $a0, string2
+	syscall
+	li $v0, 4
+	la $a0, tmpstring2
+	syscall
+	li $v0, 4
+	la $a0, string2
+	syscall
+	li $v0, 2
+	mov.s $f12, $f1
+	syscall
+	li $v0, 4
+	la $a0, string2
+	syscall
+start_if1: 
+	 li.s $f16,10.0
+	c.eq.s $f0, $f16
+	li $t0, 1
+	move $s7 $t0
+	bc1f makefalse2
+endmakefalse2:
+	move $t0 $s7
+	beq $t0, $0, ENDif2
+	li $t9 1
+	beq $t0, $t9, if2
+ENDif2:
+	li $v0, 4
+	la $a0, tmpstring3
+	syscall
+	li $v0, 4
+	la $a0, string2
+	syscall
+	li $v0, 2
+	mov.s $f12, $f0
+	syscall
+	li $v0, 4
+	la $a0, string2
+	syscall
+	li $v0, 4
+	la $a0, tmpstring4
+	syscall
+	li $v0, 4
+	la $a0, string2
+	syscall
+	li $v0, 2
+	mov.s $f12, $f1
+	syscall
+	li $v0, 4
+	la $a0, string2
+	syscall
+	j END
+if0 :
+	li.s $f10 , 1.0
+	add.s $f19, $f10, $f0
+	li.s $f10, 1.0
+	add.s $f19, $f0, $f10
+	mov.s $f0, $f19
+	li.s $f10 , 1.0
+	add.s $f19, $f10, $f1
+	li.s $f10, 1.0
+	add.s $f19, $f1, $f10
+	mov.s $f1, $f19
+start_if2: 
+	 li.s $f16,10.0
+	c.eq.s $f1, $f16
+	li $t0, 1
+	move $s7 $t0
+	bc1f makefalse3
+endmakefalse3:
+	move $t0 $s7
+	beq $t0, $0, ENDif1
+	li $t9 1
+	beq $t0, $t9, if1
+ENDif1:
+	j start_if0
+	j END
+if1 :
+	li $v0, 4
+	la $a0, tmpstring5
+	syscall
+	li $v0, 4
+	la $a0, string2
+	syscall
+	li.s $f0, 10.0
+	j ENDif0
+	j ENDif1
+	j END
+if2 :
+start_if3: 
+	 li.s $f16,10.0
+	c.eq.s $f1, $f16
+	li $t0, 1
+	move $s7 $t0
+	bc1f makefalse4
+endmakefalse4:
+	move $t0 $s7
+	beq $t0, $0, ENDif3
+	li $t9 1
+	beq $t0, $t9, if3
+ENDif3:
+	j ENDif2
+	j END
+if3 :
+start_if4: 
+	 li.s $f16,20.0
+	c.lt.s $f1, $f16
+	li $t0, 1
+	move $s7 $t0
+	bc1f makefalse5
+endmakefalse5:
+	move $t0 $s7
+	beq $t0, $0, ENDif4
+	li $t9 1
+	beq $t0, $t9, if4
+ENDif4:
+	j ENDif3
+	j END
+if4 :
+	li.s $f10 , 2.0
+	add.s $f19, $f10, $f0
+	li.s $f10, 2.0
+	add.s $f19, $f0, $f10
+	mov.s $f0, $f19
+	li.s $f10 , 1.0
+	add.s $f19, $f10, $f1
+	li.s $f10, 1.0
+	add.s $f19, $f1, $f10
+	mov.s $f1, $f19
+	li $v0, 4
+	la $a0, tmpstring6
+	syscall
+	li $v0, 4
+	la $a0, string2
+	syscall
+	li $v0, 2
+	mov.s $f12, $f0
+	syscall
+	li $v0, 4
+	la $a0, string2
+	syscall
+	li $v0, 4
+	la $a0, tmpstring7
+	syscall
+	li $v0, 4
+	la $a0, string2
+	syscall
+	li $v0, 2
+	mov.s $f12, $f1
+	syscall
+	li $v0, 4
+	la $a0, string2
+	syscall
+	j start_if4
+	j END
+find_max :
+	move $s2, $a1
+	move $s3, $a2
+start_if5: 
+	sgt $t0, $s3, $s2
+	beq $t0, $0, ENDif5
+	li $t9 1
+	beq $t0, $t9, if5
+ENDif5:
+	mul $t0, $s2, 1
+	move $t0, $t0
+	jr      $ra
+	j END
+if5 :
+	move $s2, $s3
+	j ENDif5
+	j END
+find_cube :
+	move $s4, $a1
+	move $s5, $a2
+	li $s5, 0
+start_if6: 
+	li $t7 2
+	seq $t1, $s5, $t7
+	xori $t2, $t1, 1
+	beq $t2, $0, ENDif6
+	li $t9 1
+	beq $t2, $t9, if6
+ENDif6:
+	mul $t0, $s4, 1
+	move $t0, $t0
+	jr      $ra
+	j END
+if6 :
+	addiu $t3, $s5, 1
+	move $s5, $t3
+	mul $t0, $s4, $s4
+	move $s4, $t0
+	j start_if6
+	j END
+makefalse0:
+	li $s7, 0
+	j endmakefalse0
+makefalse1:
+	li $s7, 0
+	j endmakefalse1
+makefalse2:
+	li $s7, 0
+	j endmakefalse2
+makefalse3:
+	li $s7, 0
+	j endmakefalse3
+makefalse4:
+	li $s7, 0
+	j endmakefalse4
+makefalse5:
+	li $s7, 0
+	j endmakefalse5
+END:
+.data
+	true: .byte 1
+	false: .byte 0
+	string2: .asciiz "\n"
+	tmpstring0: .asciiz "cube_of_max_value"
+	tmpstring1: .asciiz "test1:"
+	tmpstring2: .asciiz "test2:"
+	tmpstring3: .asciiz "test1:"
+	tmpstring4: .asciiz "test2:"
+	tmpstring5: .asciiz "test2=10.0_srabotalo"
+	tmpstring6: .asciiz "in_while_test1:"
+	tmpstring7: .asciiz "in_while_test2:"
