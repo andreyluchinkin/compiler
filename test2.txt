@@ -1,0 +1,19 @@
+var
+num: int;
+iter: int;
+test1: float;
+test2: float
+
+start
+    test1:=0.0;
+    test2:=1.0;
+    iter:=0;
+    while (iter<20)do
+    start
+        test1:=test1+test2;
+        test2:=test1-test2;
+        iter:=iter+1;
+        print('chislo_fibonachi');
+        print(test1)
+    end
+end
